@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RealStateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Zone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Area" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Owner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OwnerId" Type="int" Nullable="false" />
+          <Property Name="Longitude" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Latitude" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="int" Nullable="false" />
+          <Property Name="SalePrice" Type="int" Nullable="false" />
+          <Property Name="StartingPrice" Type="int" Nullable="false" />
+          <Property Name="SubPropertyType" Type="int" Nullable="false" />
+          <Property Name="BedRoom" Type="int" Nullable="false" />
+          <Property Name="WashRoom" Type="int" Nullable="false" />
+          <Property Name="DrawingRoom" Type="int" Nullable="false" />
+          <Property Name="Varanda" Type="int" Nullable="false" />
+          <Property Name="FlatSize" Type="int" Nullable="false" />
+          <Property Name="BulidingYear" Type="int" Nullable="false" />
+          <Property Name="FloorLevel" Type="int" Nullable="false" />
+          <Property Name="Purpose" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Parking" Type="bit" Nullable="false" />
+          <Property Name="PublishDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="FilePath" Type="varchar(max)" Nullable="false" />
+          <Property Name="Details" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertySubType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RealState.dbo.vProperty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="OwnerId" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="SalePrice" />
+            <PropertyRef Name="StartingPrice" />
+            <PropertyRef Name="SubPropertyType" />
+            <PropertyRef Name="BedRoom" />
+            <PropertyRef Name="WashRoom" />
+            <PropertyRef Name="DrawingRoom" />
+            <PropertyRef Name="Varanda" />
+            <PropertyRef Name="FlatSize" />
+            <PropertyRef Name="BulidingYear" />
+            <PropertyRef Name="FloorLevel" />
+            <PropertyRef Name="Purpose" />
+            <PropertyRef Name="Parking" />
+            <PropertyRef Name="PublishDate" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SubTypeName" Type="varchar" MaxLength="50" />
+          <Property Name="TypeName" Type="varchar" MaxLength="50" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="OwnerId" Type="int" Nullable="false" />
+          <Property Name="Longitude" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Latitude" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="int" Nullable="false" />
+          <Property Name="SalePrice" Type="int" Nullable="false" />
+          <Property Name="StartingPrice" Type="int" Nullable="false" />
+          <Property Name="SubPropertyType" Type="int" Nullable="false" />
+          <Property Name="BedRoom" Type="int" Nullable="false" />
+          <Property Name="WashRoom" Type="int" Nullable="false" />
+          <Property Name="DrawingRoom" Type="int" Nullable="false" />
+          <Property Name="Varanda" Type="int" Nullable="false" />
+          <Property Name="FlatSize" Type="int" Nullable="false" />
+          <Property Name="BulidingYear" Type="int" Nullable="false" />
+          <Property Name="FloorLevel" Type="int" Nullable="false" />
+          <Property Name="Purpose" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Parking" Type="bit" Nullable="false" />
+          <Property Name="PublishDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="OwnerName" Type="varchar" MaxLength="50" />
+          <Property Name="OwnerEmail" Type="varchar" MaxLength="50" />
+          <Property Name="OwnerGerder" Type="varchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="StatusName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="RealStateModelStoreContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Owner" EntityType="Self.Owner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyFile" EntityType="Self.PropertyFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertySubType" EntityType="Self.PropertySubType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyType" EntityType="Self.PropertyType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vProperty" EntityType="Self.vProperty" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vProperty].[Id] AS [Id], 
+    [vProperty].[SubTypeName] AS [SubTypeName], 
+    [vProperty].[TypeName] AS [TypeName], 
+    [vProperty].[TypeId] AS [TypeId], 
+    [vProperty].[OwnerId] AS [OwnerId], 
+    [vProperty].[Longitude] AS [Longitude], 
+    [vProperty].[Latitude] AS [Latitude], 
+    [vProperty].[Address] AS [Address], 
+    [vProperty].[SalePrice] AS [SalePrice], 
+    [vProperty].[StartingPrice] AS [StartingPrice], 
+    [vProperty].[SubPropertyType] AS [SubPropertyType], 
+    [vProperty].[BedRoom] AS [BedRoom], 
+    [vProperty].[WashRoom] AS [WashRoom], 
+    [vProperty].[DrawingRoom] AS [DrawingRoom], 
+    [vProperty].[Varanda] AS [Varanda], 
+    [vProperty].[FlatSize] AS [FlatSize], 
+    [vProperty].[BulidingYear] AS [BulidingYear], 
+    [vProperty].[FloorLevel] AS [FloorLevel], 
+    [vProperty].[Purpose] AS [Purpose], 
+    [vProperty].[Parking] AS [Parking], 
+    [vProperty].[PublishDate] AS [PublishDate], 
+    [vProperty].[Status] AS [Status], 
+    [vProperty].[OwnerName] AS [OwnerName], 
+    [vProperty].[OwnerEmail] AS [OwnerEmail], 
+    [vProperty].[OwnerGerder] AS [OwnerGerder], 
+    [vProperty].[DOB] AS [DOB], 
+    [vProperty].[Area] AS [Area], 
+    [vProperty].[StatusName] AS [StatusName]
+    FROM [dbo].[vProperty] AS [vProperty]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RealStateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RealStateEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Areas" EntityType="RealStateModel.Area" />
+          <EntitySet Name="Owners" EntityType="RealStateModel.Owner" />
+          <EntitySet Name="PropertyFiles" EntityType="RealStateModel.PropertyFile" />
+          <EntitySet Name="Properties" EntityType="RealStateModel.Property" />
+          <EntitySet Name="PropertySubTypes" EntityType="RealStateModel.PropertySubType" />
+          <EntitySet Name="PropertyTypes" EntityType="RealStateModel.PropertyType" />
+          <EntitySet Name="Status" EntityType="RealStateModel.Status" />
+          <EntitySet Name="vProperties" EntityType="RealStateModel.vProperty" />
+        </EntityContainer>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dis" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Area1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Owner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="PropertyFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OwnerId" Type="Int32" Nullable="false" />
+          <Property Name="Longitude" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="Int32" Nullable="false" />
+          <Property Name="SalePrice" Type="Int32" Nullable="false" />
+          <Property Name="StartingPrice" Type="Int32" Nullable="false" />
+          <Property Name="SubPropertyType" Type="Int32" Nullable="false" />
+          <Property Name="BedRoom" Type="Int32" Nullable="false" />
+          <Property Name="WashRoom" Type="Int32" Nullable="false" />
+          <Property Name="DrawingRoom" Type="Int32" Nullable="false" />
+          <Property Name="Varanda" Type="Int32" Nullable="false" />
+          <Property Name="FlatSize" Type="Int32" Nullable="false" />
+          <Property Name="BulidingYear" Type="Int32" Nullable="false" />
+          <Property Name="FloorLevel" Type="Int32" Nullable="false" />
+          <Property Name="Purpose" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Parking" Type="Boolean" Nullable="false" />
+          <Property Name="PublishDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertySubType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PropertyType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="OwnerId" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="SalePrice" />
+            <PropertyRef Name="StartingPrice" />
+            <PropertyRef Name="SubPropertyType" />
+            <PropertyRef Name="BedRoom" />
+            <PropertyRef Name="WashRoom" />
+            <PropertyRef Name="DrawingRoom" />
+            <PropertyRef Name="Varanda" />
+            <PropertyRef Name="FlatSize" />
+            <PropertyRef Name="BulidingYear" />
+            <PropertyRef Name="FloorLevel" />
+            <PropertyRef Name="Purpose" />
+            <PropertyRef Name="Parking" />
+            <PropertyRef Name="PublishDate" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SubTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeId" Type="Int32" />
+          <Property Name="OwnerId" Type="Int32" Nullable="false" />
+          <Property Name="Longitude" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="Int32" Nullable="false" />
+          <Property Name="SalePrice" Type="Int32" Nullable="false" />
+          <Property Name="StartingPrice" Type="Int32" Nullable="false" />
+          <Property Name="SubPropertyType" Type="Int32" Nullable="false" />
+          <Property Name="BedRoom" Type="Int32" Nullable="false" />
+          <Property Name="WashRoom" Type="Int32" Nullable="false" />
+          <Property Name="DrawingRoom" Type="Int32" Nullable="false" />
+          <Property Name="Varanda" Type="Int32" Nullable="false" />
+          <Property Name="FlatSize" Type="Int32" Nullable="false" />
+          <Property Name="BulidingYear" Type="Int32" Nullable="false" />
+          <Property Name="FloorLevel" Type="Int32" Nullable="false" />
+          <Property Name="Purpose" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Parking" Type="Boolean" Nullable="false" />
+          <Property Name="PublishDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerGerder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RealStateModelStoreContainer" CdmEntityContainer="RealStateEntities">
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="RealStateModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Area1" ColumnName="Area" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="Dis" ColumnName="Dis" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Owners">
+            <EntityTypeMapping TypeName="RealStateModel.Owner">
+              <MappingFragment StoreEntitySet="Owner">
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyFiles">
+            <EntityTypeMapping TypeName="RealStateModel.PropertyFile">
+              <MappingFragment StoreEntitySet="PropertyFile">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="RealStateModel.Property">
+              <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="Parking" ColumnName="Parking" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="FloorLevel" ColumnName="FloorLevel" />
+                <ScalarProperty Name="BulidingYear" ColumnName="BulidingYear" />
+                <ScalarProperty Name="FlatSize" ColumnName="FlatSize" />
+                <ScalarProperty Name="Varanda" ColumnName="Varanda" />
+                <ScalarProperty Name="DrawingRoom" ColumnName="DrawingRoom" />
+                <ScalarProperty Name="WashRoom" ColumnName="WashRoom" />
+                <ScalarProperty Name="BedRoom" ColumnName="BedRoom" />
+                <ScalarProperty Name="SubPropertyType" ColumnName="SubPropertyType" />
+                <ScalarProperty Name="StartingPrice" ColumnName="StartingPrice" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertySubTypes">
+            <EntityTypeMapping TypeName="RealStateModel.PropertySubType">
+              <MappingFragment StoreEntitySet="PropertySubType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyTypes">
+            <EntityTypeMapping TypeName="RealStateModel.PropertyType">
+              <MappingFragment StoreEntitySet="PropertyType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="RealStateModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vProperties">
+            <EntityTypeMapping TypeName="RealStateModel.vProperty">
+              <MappingFragment StoreEntitySet="vProperty">
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="OwnerGerder" ColumnName="OwnerGerder" />
+                <ScalarProperty Name="OwnerEmail" ColumnName="OwnerEmail" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="Parking" ColumnName="Parking" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="FloorLevel" ColumnName="FloorLevel" />
+                <ScalarProperty Name="BulidingYear" ColumnName="BulidingYear" />
+                <ScalarProperty Name="FlatSize" ColumnName="FlatSize" />
+                <ScalarProperty Name="Varanda" ColumnName="Varanda" />
+                <ScalarProperty Name="DrawingRoom" ColumnName="DrawingRoom" />
+                <ScalarProperty Name="WashRoom" ColumnName="WashRoom" />
+                <ScalarProperty Name="BedRoom" ColumnName="BedRoom" />
+                <ScalarProperty Name="SubPropertyType" ColumnName="SubPropertyType" />
+                <ScalarProperty Name="StartingPrice" ColumnName="StartingPrice" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="SubTypeName" ColumnName="SubTypeName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

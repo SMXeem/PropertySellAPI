@@ -7,31 +7,37 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace RealState.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
+
     public partial class Property
     {
         public int Id { get; set; }
         public int OwnerId { get; set; }
+        public string PropertyName { get; set; }
+        public int Area { get; set; }
+        public string Address { get; set; }
         public string Longitude { get; set; }
         public string Latitude { get; set; }
-        public int Address { get; set; }
         public int SalePrice { get; set; }
-        public int StartingPrice { get; set; }
         public int SubPropertyType { get; set; }
-        public int BedRoom { get; set; }
-        public int WashRoom { get; set; }
-        public int DrawingRoom { get; set; }
-        public int Varanda { get; set; }
-        public int FlatSize { get; set; }
-        public int BulidingYear { get; set; }
-        public int FloorLevel { get; set; }
-        public string Purpose { get; set; }
-        public bool Parking { get; set; }
+        public Nullable<int> BedRoom { get; set; }
+        public Nullable<int> WashRoom { get; set; }
+        public Nullable<int> Varanda { get; set; }
+        public Nullable<bool> DrawingRoom { get; set; }
+        public Nullable<bool> Parking { get; set; }
+        public Nullable<int> FlatSize { get; set; }
+        public Nullable<int> BulidingYear { get; set; }
+        public Nullable<int> FloorLevel { get; set; }
+        public string Preference { get; set; }
         public System.DateTime PublishDate { get; set; }
         public int Status { get; set; }
+        public string CoverUrl { get; set; }
     }
 }

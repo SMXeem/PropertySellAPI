@@ -26,12 +26,12 @@ namespace RealState.Models
         }
     
         public virtual DbSet<Area> Areas { get; set; }
-        public virtual DbSet<Owner> Owners { get; set; }
         public virtual DbSet<PropertyFile> PropertyFiles { get; set; }
-        public virtual DbSet<Property> Properties { get; set; }
         public virtual DbSet<PropertySubType> PropertySubTypes { get; set; }
         public virtual DbSet<PropertyType> PropertyTypes { get; set; }
         public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<Property> Properties { get; set; }
+        public virtual DbSet<Owner> Owners { get; set; }
         public virtual DbSet<vProperty> vProperties { get; set; }
     }
 }

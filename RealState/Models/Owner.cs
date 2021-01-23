@@ -16,8 +16,11 @@ namespace RealState.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Mobile { get; set; }
+        public Nullable<int> NID { get; set; }
         public string Gender { get; set; }
-        public string Email { get; set; }
         public System.DateTime DOB { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

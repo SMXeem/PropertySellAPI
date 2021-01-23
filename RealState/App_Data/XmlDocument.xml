@@ -522,6 +522,27 @@
             Owner all operation
             </summary>
         </member>
+        <member name="M:RealState.Controllers.OwnersController.Get">
+            <summary>
+            Get all OwnerInfo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RealState.Controllers.OwnersController.Get(System.Int32)">
+            <summary>
+            Get Owner by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RealState.Controllers.OwnersController.Get(System.String)">
+            <summary>
+            Get user by email
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:RealState.Controllers.OwnersController.PostOwner(RealState.Models.Owner)" -->
         <member name="T:RealState.Controllers.PropertyController">
             <summary>
             
@@ -547,9 +568,9 @@
             <param name="id">Sub PropertyType Id</param>
             <returns></returns>
         </member>
-        <member name="M:RealState.Controllers.PropertyController.GetPropertyBySubPropertyTypeAddress(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+        <member name="M:RealState.Controllers.PropertyController.GetPropertyBySubPropertyTypeArea(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
-            Get Property by type and address id
+            Get Property by type and area id
             </summary>
             <param name="typeId">Sub property Id</param>
             <param name="areaId">Area id</param>
@@ -567,6 +588,48 @@
             
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RealState.Controllers.PropertyController.PostProperty">
+            <summary>
+            
+            </summary>
+            <param name="aProperty"></param>
+            <param name="coverPhoto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RealState.Controllers.PropertyController.PostPropertyPhotos">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:RealState.Manager.Common">
+            <summary>
+            Common Class
+            </summary>
+        </member>
+        <member name="M:RealState.Manager.Common.Encrypt(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="plainText"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:RealState.Manager.Common.Decrypt(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cipher"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:RealState.Manager.Common.SaveImage(System.Web.HttpPostedFile)">
+            <summary>
+            
+            </summary>
+            <param name="aPhoto"></param>
             <returns></returns>
         </member>
     </members>

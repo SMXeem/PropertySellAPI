@@ -22,7 +22,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Mobile" Type="varchar" MaxLength="50" />
-          <Property Name="NID" Type="int" />
+          <Property Name="NID" Type="varchar" MaxLength="50" />
           <Property Name="Gender" Type="varchar" MaxLength="50" />
           <Property Name="DOB" Type="date" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
@@ -53,6 +53,7 @@
           <Property Name="PublishDate" Type="datetime" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="CoverUrl" Type="varchar(max)" />
+          <Property Name="Purpose" Type="int" />
         </EntityType>
         <EntityType Name="PropertyFile">
           <Key>
@@ -86,7 +87,7 @@
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'RealState.dbo.vProperty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vProperty">
           <Key>
             <PropertyRef Name="Id" />
@@ -123,12 +124,13 @@ warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a prim
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="StatusName" Type="varchar" MaxLength="50" />
           <Property Name="CoverUrl" Type="varchar(max)" />
+          <Property Name="Purpose" Type="int" />
           <Property Name="OwnerName" Type="varchar" MaxLength="50" />
           <Property Name="OwnerEmail" Type="varchar" MaxLength="50" />
           <Property Name="OwnerGerder" Type="varchar" MaxLength="50" />
           <Property Name="DOB" Type="date" />
           <Property Name="Mobile" Type="varchar" MaxLength="50" />
-          <Property Name="NID" Type="int" />
+          <Property Name="NID" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="RealStateModelStoreContainer">
           <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
@@ -166,6 +168,7 @@ warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a prim
     [vProperty].[Status] AS [Status], 
     [vProperty].[StatusName] AS [StatusName], 
     [vProperty].[CoverUrl] AS [CoverUrl], 
+    [vProperty].[Purpose] AS [Purpose], 
     [vProperty].[OwnerName] AS [OwnerName], 
     [vProperty].[OwnerEmail] AS [OwnerEmail], 
     [vProperty].[OwnerGerder] AS [OwnerGerder], 
@@ -185,10 +188,10 @@ warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a prim
           <EntitySet Name="PropertySubTypes" EntityType="RealStateModel.PropertySubType" />
           <EntitySet Name="PropertyTypes" EntityType="RealStateModel.PropertyType" />
           <EntitySet Name="Status" EntityType="RealStateModel.Status" />
-          <EntitySet Name="Properties" EntityType="RealStateModel.Property" />
           <EntitySet Name="Owners" EntityType="RealStateModel.Owner" />
+          <EntitySet Name="Properties" EntityType="RealStateModel.Property" />
           <EntitySet Name="vProperties" EntityType="RealStateModel.vProperty" />
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Area">
           <Key>
             <PropertyRef Name="Id" />
@@ -230,6 +233,19 @@ warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a prim
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Owner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Property">
           <Key>
             <PropertyRef Name="Id" />
@@ -255,19 +271,7 @@ warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a prim
           <Property Name="PublishDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="CoverUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Owner">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NID" Type="Int32" />
-          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Purpose" Type="Int32" />
         </EntityType>
         <EntityType Name="vProperty">
           <Key>
@@ -305,14 +309,15 @@ warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a prim
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CoverUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Purpose" Type="Int32" />
           <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="OwnerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="OwnerGerder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DOB" Type="DateTime" Precision="0" />
           <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NID" Type="Int32" />
+          <Property Name="NID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -364,9 +369,24 @@ warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Owners">
+            <EntityTypeMapping TypeName="RealStateModel.Owner">
+              <MappingFragment StoreEntitySet="Owner">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Properties">
             <EntityTypeMapping TypeName="RealStateModel.Property">
               <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
                 <ScalarProperty Name="CoverUrl" ColumnName="CoverUrl" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
@@ -391,20 +411,6 @@ warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Owners">
-            <EntityTypeMapping TypeName="RealStateModel.Owner">
-              <MappingFragment StoreEntitySet="Owner">
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="NID" ColumnName="NID" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vProperties">
             <EntityTypeMapping TypeName="RealStateModel.vProperty">
               <MappingFragment StoreEntitySet="vProperty">
@@ -414,6 +420,7 @@ warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a prim
                 <ScalarProperty Name="OwnerGerder" ColumnName="OwnerGerder" />
                 <ScalarProperty Name="OwnerEmail" ColumnName="OwnerEmail" />
                 <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
                 <ScalarProperty Name="CoverUrl" ColumnName="CoverUrl" />
                 <ScalarProperty Name="StatusName" ColumnName="StatusName" />
                 <ScalarProperty Name="Status" ColumnName="Status" />

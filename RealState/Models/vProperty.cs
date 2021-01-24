@@ -40,11 +40,12 @@ namespace RealState.Models
         public int Status { get; set; }
         public string StatusName { get; set; }
         public string CoverUrl { get; set; }
+        public Nullable<int> Purpose { get; set; }
         public string OwnerName { get; set; }
         public string OwnerEmail { get; set; }
         public string OwnerGerder { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
         public string Mobile { get; set; }
-        public Nullable<int> NID { get; set; }
+        public string NID { get; set; }
     }
 }

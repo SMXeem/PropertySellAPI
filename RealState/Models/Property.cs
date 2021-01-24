@@ -7,15 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace RealState.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-
-
+    
     public partial class Property
     {
         public int Id { get; set; }
@@ -39,5 +35,6 @@ namespace RealState.Models
         public System.DateTime PublishDate { get; set; }
         public int Status { get; set; }
         public string CoverUrl { get; set; }
+        public Nullable<int> Purpose { get; set; }
     }
 }

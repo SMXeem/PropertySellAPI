@@ -27,7 +27,7 @@ namespace RealState.Controllers
         {
             try 
             {
-                var result = _aRealStateEntities.vProperties.ToList();
+                var result = _aRealStateEntities.vProperties.Where(w=>w.Purpose==1).ToList();
                 _response = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception e)
@@ -45,7 +45,7 @@ namespace RealState.Controllers
         {
             try 
             {
-                var result = _aRealStateEntities.vProperties.Where(w => w.Area == id).ToList();
+                var result = _aRealStateEntities.vProperties.Where(w => w.Area == id && w.Purpose == 1).ToList();
                 _response = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception e)
@@ -63,7 +63,7 @@ namespace RealState.Controllers
         {
             try 
             {
-                var result = _aRealStateEntities.vProperties.Where(w => w.SubPropertyType == id).ToList();
+                var result = _aRealStateEntities.vProperties.Where(w => w.SubPropertyType == id && w.Purpose == 1).ToList();
                 _response = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception e)
@@ -82,7 +82,7 @@ namespace RealState.Controllers
         {
             try 
             {
-                var result = _aRealStateEntities.vProperties.Where(w => w.SubPropertyType == typeId && w.Area == areaId ).ToList();
+                var result = _aRealStateEntities.vProperties.Where(w => w.SubPropertyType == typeId && w.Area == areaId && w.Purpose == 1).ToList();
                 _response = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception e)
@@ -100,7 +100,7 @@ namespace RealState.Controllers
         {
             try
             {
-                var result = _aRealStateEntities.vProperties.Where(w => w.Area == id).ToList().OrderBy(x => x.SalePrice);
+                var result = _aRealStateEntities.vProperties.Where(w => w.Area == id && w.Purpose == 1).ToList().OrderBy(x => x.SalePrice);
                 _response = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception e)
@@ -118,7 +118,7 @@ namespace RealState.Controllers
         {
             try
             {
-                var result = _aRealStateEntities.vProperties.Where(w => w.Area == id).ToList()
+                var result = _aRealStateEntities.vProperties.Where(w => w.Area == id && w.Purpose == 1).ToList()
                     .OrderByDescending(x => x.SalePrice);
                 _response = Request.CreateResponse(HttpStatusCode.OK, result);
             }
@@ -160,6 +160,7 @@ namespace RealState.Controllers
                     BulidingYear = Convert.ToInt32(request.Form["BulidingYear"]),
                     FloorLevel = Convert.ToInt32(request.Form["FloorLevel"]),
                     Preference = request.Form["Preference"],
+                    Purpose = Convert.ToInt32(request.Form["Purpose"]),
                     PublishDate = DateTime.Now,
                     Status = 1
                 };

@@ -481,6 +481,55 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:RealState.Controllers.AdminController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RealState.Controllers.AdminController.UpdateStatus(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:RealState.Controllers.BookingController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RealState.Controllers.BookingController.Post(RealState.Models.Booking)">
+            <summary>
+            
+            </summary>
+            <param name="aBooking"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RealState.Controllers.BookingController.DeleteBooking(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RealState.Controllers.BookingController.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RealState.Controllers.BookingController.Get(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RealState.Controllers.BookingController.GetByBooker(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:RealState.Controllers.DataController">
             <summary>
             Get Enum
@@ -548,60 +597,85 @@
             
             </summary>
         </member>
-        <member name="M:RealState.Controllers.PropertyController.Get">
+        <member name="M:RealState.Controllers.PropertyController.Get(System.Int32,System.Int32)">
             <summary>
             Get all Property
             </summary>
             <returns></returns>
         </member>
-        <member name="M:RealState.Controllers.PropertyController.GetPropertyByArea(System.Nullable{System.Int32})">
+        <member name="M:RealState.Controllers.PropertyController.GetById(System.Int32)">
             <summary>
-            Get Property by Area Id
+            Get property by Id
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:RealState.Controllers.PropertyController.GetPropertyBySubPropertyType(System.Nullable{System.Int32})">
+        <member name="M:RealState.Controllers.PropertyController.GetPropertyByArea(System.Nullable{System.Int32},System.Int32,System.Int32)">
+            <summary>
+            Get Property by Area Id
+            </summary>
+            <param name="id"></param>
+            <param name="purpose"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RealState.Controllers.PropertyController.GetPropertyBySubPropertyType(System.Nullable{System.Int32},System.Int32,System.Int32)">
             <summary>
             Get Property by Sub PropertyType
             </summary>
             <param name="id">Sub PropertyType Id</param>
+            <param name="purpose"></param>
+            <param name="status"></param>
             <returns></returns>
         </member>
-        <member name="M:RealState.Controllers.PropertyController.GetPropertyBySubPropertyTypeArea(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+        <member name="M:RealState.Controllers.PropertyController.GetPropertyBySubPropertyTypeArea(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Int32,System.Int32)">
             <summary>
             Get Property by type and area id
             </summary>
             <param name="typeId">Sub property Id</param>
             <param name="areaId">Area id</param>
+            <param name="purpose"></param>
+            <param name="status"></param>
             <returns></returns>
         </member>
-        <member name="M:RealState.Controllers.PropertyController.GetPropertyByMinArea(System.Nullable{System.Int32})">
+        <member name="M:RealState.Controllers.PropertyController.GetPropertyByMinMaxArea(System.Nullable{System.Int32},System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             
             </summary>
-            <param name="id"></param>
+            <param name="areaId"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="purpose"></param>
+            <param name="status"></param>
             <returns></returns>
         </member>
-        <member name="M:RealState.Controllers.PropertyController.GetPropertyByMaxArea(System.Nullable{System.Int32})">
+        <member name="M:RealState.Controllers.PropertyController.GetPropertyByMinMax(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             
             </summary>
-            <param name="id"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="purpose"></param>
+            <param name="status"></param>
             <returns></returns>
         </member>
         <member name="M:RealState.Controllers.PropertyController.PostProperty">
             <summary>
-            
+            Post property
             </summary>
-            <param name="aProperty"></param>
-            <param name="coverPhoto"></param>
             <returns></returns>
         </member>
         <member name="M:RealState.Controllers.PropertyController.PostPropertyPhotos">
             <summary>
+            Post property File
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RealState.Controllers.PropertyController.GetPropertyPhotos(System.Int32)">
+            <summary>
             
             </summary>
+            <param name="propertyId"></param>
             <returns></returns>
         </member>
         <member name="T:RealState.Manager.Common">

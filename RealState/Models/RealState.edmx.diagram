@@ -13,6 +13,8 @@
         <EntityTypeShape EntityType="RealStateModel.Owner" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="RealStateModel.Property" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="RealStateModel.vProperty" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="RealStateModel.Booking" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RealStateModel.vBooking" Width="1.5" PointX="0.75" PointY="9.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

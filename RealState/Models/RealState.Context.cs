@@ -33,5 +33,7 @@ namespace RealState.Models
         public virtual DbSet<Owner> Owners { get; set; }
         public virtual DbSet<Property> Properties { get; set; }
         public virtual DbSet<vProperty> vProperties { get; set; }
+        public virtual DbSet<Booking> Bookings { get; set; }
+        public virtual DbSet<vBooking> vBookings { get; set; }
     }
 }

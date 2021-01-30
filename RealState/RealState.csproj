@@ -163,6 +163,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OwnersController.cs" />
@@ -172,6 +174,9 @@
     </Compile>
     <Compile Include="Manager\Common.cs" />
     <Compile Include="Models\Area.cs">
+      <DependentUpon>RealState.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Booking.cs">
       <DependentUpon>RealState.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Owner.cs">
@@ -207,12 +212,16 @@
     <Compile Include="Models\Status.cs">
       <DependentUpon>RealState.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\vBooking.cs">
+      <DependentUpon>RealState.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\vProperty.cs">
       <DependentUpon>RealState.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\XmlDocument.xml" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -282,8 +291,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Image\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

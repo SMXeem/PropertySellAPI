@@ -15,6 +15,15 @@
           <Property Name="Area" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyId" Type="int" />
+          <Property Name="OwnerId" Type="int" />
+          <Property Name="Time" Type="datetime" />
+        </EntityType>
         <EntityType Name="Owner">
           <Key>
             <PropertyRef Name="Id" />
@@ -87,7 +96,57 @@
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'RealState.dbo.vProperty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_A6E075_real.dbo.vBooking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vBooking">
+          <Key>
+            <PropertyRef Name="BId" />
+          </Key>
+          <Property Name="BId" Type="int" Nullable="false" />
+          <Property Name="BPropertyId" Type="int" />
+          <Property Name="BOwnerId" Type="int" />
+          <Property Name="BTime" Type="datetime" />
+          <Property Name="BName" Type="varchar" MaxLength="50" />
+          <Property Name="BMobile" Type="varchar" MaxLength="50" />
+          <Property Name="BNID" Type="varchar" MaxLength="50" />
+          <Property Name="BGender" Type="varchar" MaxLength="50" />
+          <Property Name="BDOB" Type="date" />
+          <Property Name="BEmail" Type="varchar" MaxLength="50" />
+          <Property Name="Id" Type="int" />
+          <Property Name="OwnerId" Type="int" />
+          <Property Name="PropertyName" Type="varchar" MaxLength="50" />
+          <Property Name="Area" Type="int" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="nchar" MaxLength="10" />
+          <Property Name="Longitude" Type="varchar" MaxLength="50" />
+          <Property Name="Latitude" Type="varchar" MaxLength="50" />
+          <Property Name="SalePrice" Type="int" />
+          <Property Name="SubPropertyType" Type="int" />
+          <Property Name="SubTypeName" Type="varchar" MaxLength="50" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="TypeName" Type="varchar" MaxLength="50" />
+          <Property Name="BedRoom" Type="int" />
+          <Property Name="WashRoom" Type="int" />
+          <Property Name="Varanda" Type="int" />
+          <Property Name="DrawingRoom" Type="bit" />
+          <Property Name="Parking" Type="bit" />
+          <Property Name="FlatSize" Type="int" />
+          <Property Name="BulidingYear" Type="int" />
+          <Property Name="FloorLevel" Type="int" />
+          <Property Name="Preference" Type="varchar" MaxLength="50" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="StatusName" Type="varchar" MaxLength="50" />
+          <Property Name="CoverUrl" Type="varchar(max)" />
+          <Property Name="Purpose" Type="int" />
+          <Property Name="OwnerName" Type="varchar" MaxLength="50" />
+          <Property Name="OwnerEmail" Type="varchar" MaxLength="50" />
+          <Property Name="OwnerGerder" Type="varchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="NID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_A6E075_real.dbo.vProperty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vProperty">
           <Key>
             <PropertyRef Name="Id" />
@@ -134,12 +193,60 @@ warning 6002: The table/view 'RealState.dbo.vProperty' does not have a primary k
         </EntityType>
         <EntityContainer Name="RealStateModelStoreContainer">
           <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Owner" EntityType="Self.Owner" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PropertyFile" EntityType="Self.PropertyFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PropertySubType" EntityType="Self.PropertySubType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PropertyType" EntityType="Self.PropertyType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vBooking" EntityType="Self.vBooking" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vBooking].[BId] AS [BId], 
+    [vBooking].[BPropertyId] AS [BPropertyId], 
+    [vBooking].[BOwnerId] AS [BOwnerId], 
+    [vBooking].[BTime] AS [BTime], 
+    [vBooking].[BName] AS [BName], 
+    [vBooking].[BMobile] AS [BMobile], 
+    [vBooking].[BNID] AS [BNID], 
+    [vBooking].[BGender] AS [BGender], 
+    [vBooking].[BDOB] AS [BDOB], 
+    [vBooking].[BEmail] AS [BEmail], 
+    [vBooking].[Id] AS [Id], 
+    [vBooking].[OwnerId] AS [OwnerId], 
+    [vBooking].[PropertyName] AS [PropertyName], 
+    [vBooking].[Area] AS [Area], 
+    [vBooking].[AreaName] AS [AreaName], 
+    [vBooking].[Address] AS [Address], 
+    [vBooking].[Longitude] AS [Longitude], 
+    [vBooking].[Latitude] AS [Latitude], 
+    [vBooking].[SalePrice] AS [SalePrice], 
+    [vBooking].[SubPropertyType] AS [SubPropertyType], 
+    [vBooking].[SubTypeName] AS [SubTypeName], 
+    [vBooking].[TypeId] AS [TypeId], 
+    [vBooking].[TypeName] AS [TypeName], 
+    [vBooking].[BedRoom] AS [BedRoom], 
+    [vBooking].[WashRoom] AS [WashRoom], 
+    [vBooking].[Varanda] AS [Varanda], 
+    [vBooking].[DrawingRoom] AS [DrawingRoom], 
+    [vBooking].[Parking] AS [Parking], 
+    [vBooking].[FlatSize] AS [FlatSize], 
+    [vBooking].[BulidingYear] AS [BulidingYear], 
+    [vBooking].[FloorLevel] AS [FloorLevel], 
+    [vBooking].[Preference] AS [Preference], 
+    [vBooking].[PublishDate] AS [PublishDate], 
+    [vBooking].[Status] AS [Status], 
+    [vBooking].[StatusName] AS [StatusName], 
+    [vBooking].[CoverUrl] AS [CoverUrl], 
+    [vBooking].[Purpose] AS [Purpose], 
+    [vBooking].[OwnerName] AS [OwnerName], 
+    [vBooking].[OwnerEmail] AS [OwnerEmail], 
+    [vBooking].[OwnerGerder] AS [OwnerGerder], 
+    [vBooking].[DOB] AS [DOB], 
+    [vBooking].[Mobile] AS [Mobile], 
+    [vBooking].[NID] AS [NID]
+    FROM [dbo].[vBooking] AS [vBooking]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vProperty" EntityType="Self.vProperty" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vProperty].[Id] AS [Id], 
@@ -191,6 +298,8 @@ warning 6002: The table/view 'RealState.dbo.vProperty' does not have a primary k
           <EntitySet Name="Owners" EntityType="RealStateModel.Owner" />
           <EntitySet Name="Properties" EntityType="RealStateModel.Property" />
           <EntitySet Name="vProperties" EntityType="RealStateModel.vProperty" />
+          <EntitySet Name="Bookings" EntityType="RealStateModel.Booking" />
+          <EntitySet Name="vBookings" EntityType="RealStateModel.vBooking" />
           </EntityContainer>
         <EntityType Name="Area">
           <Key>
@@ -307,6 +416,63 @@ warning 6002: The table/view 'RealState.dbo.vProperty' does not have a primary k
           <Property Name="Preference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PublishDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CoverUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Purpose" Type="Int32" />
+          <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerGerder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyId" Type="Int32" />
+          <Property Name="OwnerId" Type="Int32" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vBooking">
+          <Key>
+            <PropertyRef Name="BId" />
+          </Key>
+          <Property Name="BId" Type="Int32" Nullable="false" />
+          <Property Name="BPropertyId" Type="Int32" />
+          <Property Name="BOwnerId" Type="Int32" />
+          <Property Name="BTime" Type="DateTime" Precision="3" />
+          <Property Name="BName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BNID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BDOB" Type="DateTime" Precision="0" />
+          <Property Name="BEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="OwnerId" Type="Int32" />
+          <Property Name="PropertyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="Int32" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalePrice" Type="Int32" />
+          <Property Name="SubPropertyType" Type="Int32" />
+          <Property Name="SubTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeId" Type="Int32" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BedRoom" Type="Int32" />
+          <Property Name="WashRoom" Type="Int32" />
+          <Property Name="Varanda" Type="Int32" />
+          <Property Name="DrawingRoom" Type="Boolean" />
+          <Property Name="Parking" Type="Boolean" />
+          <Property Name="FlatSize" Type="Int32" />
+          <Property Name="BulidingYear" Type="Int32" />
+          <Property Name="FloorLevel" Type="Int32" />
+          <Property Name="Preference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PublishDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
           <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CoverUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Purpose" Type="Int32" />
@@ -447,6 +613,65 @@ warning 6002: The table/view 'RealState.dbo.vProperty' does not have a primary k
                 <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
                 <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bookings">
+            <EntityTypeMapping TypeName="RealStateModel.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vBookings">
+            <EntityTypeMapping TypeName="RealStateModel.vBooking">
+              <MappingFragment StoreEntitySet="vBooking">
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="OwnerGerder" ColumnName="OwnerGerder" />
+                <ScalarProperty Name="OwnerEmail" ColumnName="OwnerEmail" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="CoverUrl" ColumnName="CoverUrl" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="Preference" ColumnName="Preference" />
+                <ScalarProperty Name="FloorLevel" ColumnName="FloorLevel" />
+                <ScalarProperty Name="BulidingYear" ColumnName="BulidingYear" />
+                <ScalarProperty Name="FlatSize" ColumnName="FlatSize" />
+                <ScalarProperty Name="Parking" ColumnName="Parking" />
+                <ScalarProperty Name="DrawingRoom" ColumnName="DrawingRoom" />
+                <ScalarProperty Name="Varanda" ColumnName="Varanda" />
+                <ScalarProperty Name="WashRoom" ColumnName="WashRoom" />
+                <ScalarProperty Name="BedRoom" ColumnName="BedRoom" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="SubTypeName" ColumnName="SubTypeName" />
+                <ScalarProperty Name="SubPropertyType" ColumnName="SubPropertyType" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BEmail" ColumnName="BEmail" />
+                <ScalarProperty Name="BDOB" ColumnName="BDOB" />
+                <ScalarProperty Name="BGender" ColumnName="BGender" />
+                <ScalarProperty Name="BNID" ColumnName="BNID" />
+                <ScalarProperty Name="BMobile" ColumnName="BMobile" />
+                <ScalarProperty Name="BName" ColumnName="BName" />
+                <ScalarProperty Name="BTime" ColumnName="BTime" />
+                <ScalarProperty Name="BOwnerId" ColumnName="BOwnerId" />
+                <ScalarProperty Name="BPropertyId" ColumnName="BPropertyId" />
+                <ScalarProperty Name="BId" ColumnName="BId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

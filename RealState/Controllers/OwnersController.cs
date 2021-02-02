@@ -73,6 +73,24 @@ namespace RealState.Controllers
             }
             return _response;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mobileNo"></param>
+        /// <returns></returns>
+        public HttpResponseMessage GetByMobile(string mobileNo)
+        {
+            try
+            {
+                var result = _aRealStateEntities.Owners.FirstOrDefault(w => w.Mobile == mobileNo);
+                _response = Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception e)
+            {
+                _response = Request.CreateResponse(HttpStatusCode.NotFound, e);
+            }
+            return _response;
+        }
         //POST: api/Owners
         /// <summary>
         /// 

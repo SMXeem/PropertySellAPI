@@ -591,6 +591,13 @@
             <param name="email"></param>
             <returns></returns>
         </member>
+        <member name="M:RealState.Controllers.OwnersController.GetByMobile(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="mobileNo"></param>
+            <returns></returns>
+        </member>
         <!-- Badly formed XML comment ignored for member "M:RealState.Controllers.OwnersController.PostOwner(RealState.Models.Owner)" -->
         <member name="T:RealState.Controllers.PropertyController">
             <summary>

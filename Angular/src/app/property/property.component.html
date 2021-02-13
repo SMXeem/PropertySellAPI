@@ -1,0 +1,21 @@
+<p>Property List</p>
+<table>
+    <tr>
+        <th>Owner Name</th>
+        <th>Area</th>
+        <th>Type</th>
+        <th>Sub Type</th>
+        <th>No of Bed Room</th>
+        <th>Sale Price</th>
+        <th>Mobile</th>
+    </tr>
+    <tr *ngFor="let p of propertyList ; let i=index" (click)="viewItem(p)">
+        <td>{{ p.OwnerName }}</td>
+        <td>{{ p.AreaName }}</td>
+        <td>{{ p.TypeName }}</td>
+        <td>{{ p.SubTypeName }}</td>
+        <td>{{ p.BedRoom }}</td>
+        <td>{{ p.SalePrice }}</td>
+        <td>{{ p.Mobile }}</td>
+    </tr>
+</table>

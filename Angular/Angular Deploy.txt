@@ -1,0 +1,1 @@
+ng build --prod --base-href "http://bdpropertydemo-001-site1.htempurl.com/angular/"

@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Owner Details</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-6"> 
+        Name : {{owner.Name}}
+      </div>
+      <div class="col-md-6"> 
+        Mobile : {{owner.Mobile}}
+      </div>
+      <div class="col-md-6"> 
+        Email : {{owner.Email}}
+      </div>
+      <div class="col-md-6"> 
+        Gender : {{owner.Gender}}
+      </div>
+      <div class="col-md-6"> 
+        DOB : {{owner.DOB | date: 'dd/MMMM/yyyy'}}
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
+  </div>

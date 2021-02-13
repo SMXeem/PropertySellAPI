@@ -1,0 +1,13 @@
+<p>Owner List</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Nid</th>
+        <th>Mobile</th>
+    </tr>
+    <tr *ngFor="let o of ownerList ; let i=index" (click)="viewItem(o)">
+        <td>{{ o.Name }}</td>
+        <td>{{ o.NID }}</td>
+        <td>{{ o.Mobile }}</td>
+    </tr>
+</table>

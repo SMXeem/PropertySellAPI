@@ -1,0 +1,68 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Property Details</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-6"> 
+        Property Name : {{property.PropertyName}}
+      </div>
+      <div class="col-md-6"> 
+        Address : {{property.Address}}
+      </div>
+      <div class="col-md-6"> 
+        AreaName : {{property.AreaName}}
+      </div>
+      <div class="col-md-6"> 
+        Sale Price : {{property.SalePrice}}
+      </div>
+      <div class="col-md-6"> 
+        FlatSize : {{property.FlatSize}}
+      </div>
+      <div class="col-md-6"> 
+        Type : {{property.TypeName}}
+      </div>
+      <div class="col-md-6"> 
+        Sub Type : {{property.SubTypeName}}
+      </div>
+      <div class="col-md-6"> 
+        Bed Room : {{property.BedRoom}}
+      </div>
+      <div class="col-md-6"> 
+        WashRoom : {{property.WashRoom}}
+      </div>
+      <div class="col-md-6"> 
+        Varanda : {{property.Varanda}}
+      </div>
+      <div class="col-md-6"> 
+        DrawingRoom : {{property.DrawingRoom}}
+      </div>
+      <div class="col-md-6"> 
+        Parking : {{property.Parking}}
+      </div>
+      <div class="col-md-6"> 
+        BulidingYear : {{property.BulidingYear}}
+      </div>
+      <div class="col-md-6"> 
+        FloorLevel : {{property.FloorLevel}}
+      </div>
+      <div class="col-md-6"> 
+        PublishDate : {{property.PublishDate | date: 'dd/MMMM/yyyy hh:mm a'}}
+      </div>
+      <div class="col-md-6"> 
+        OwnerName : {{property.OwnerName}}
+      </div>
+      <div class="col-md-6"> 
+        OwnerEmail : {{property.OwnerEmail}}
+      </div>
+      <div class="col-md-6"> 
+        Mobile : {{property.Mobile}}
+      </div>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
+  </div>
